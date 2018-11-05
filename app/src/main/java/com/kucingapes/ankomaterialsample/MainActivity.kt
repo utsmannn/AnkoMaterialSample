@@ -20,6 +20,9 @@ import android.support.v7.widget.Toolbar
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import com.kucingapes.ankomaterialsample.materialDrawer.DrawerAdapter
 import com.kucingapes.ankomaterialsample.materialDrawer.DrawerItemClick
 import com.kucingapes.ankomaterialsample.materialDrawer.ItemDrawer
@@ -66,6 +69,14 @@ class MainActivity : BaseActivity() {
                         }.show()
                 }
                 BOTTOMAPPBAR -> startActivity<BottomAppBarActivity>()
+                CARDVIEW -> replaceFragment(F_Main(), "CardView with radius = 8f")
+                PROGRESSBAR -> {
+                    val progressHorizontal = find(R.id.horizontal_progress) as ProgressBar
+                    progressHorizontal.visibility = View.VISIBLE
+                    Handler().postDelayed({
+                        progressHorizontal.visibility = View.GONE
+                    }, 10000)
+                }
             }
         }
     }
@@ -79,6 +90,14 @@ class MainActivity : BaseActivity() {
         setupDrawer()
 
         addFragment(F_Main(), getString(R.string.app_name))
+        initGithubLink()
+    }
+
+    private fun initGithubLink() {
+        val view: LinearLayout = find(R.id.github)
+        view.setOnClickListener {
+            browse("https://github.com/kucingapes/AnkoMaterialSample")
+        }
     }
 
     private fun setupToolbar() {
@@ -90,41 +109,41 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupDrawer() {
-        val main = ItemDrawer(R.drawable.ic_plus, "Main")
+        val main = ItemDrawer(R.drawable.ic_home, "Main")
             .addIdentifier(MAIN)
 
-        val typography = ItemDrawer(R.drawable.ic_plus, "Typography")
+        val typography = ItemDrawer(R.drawable.ic_typography, "Typography")
             .addIdentifier(TYPOGRAPHY)
 
-        val ripple = ItemDrawer(R.drawable.ic_plus, "Ripple")
+        val ripple = ItemDrawer(R.drawable.ic_finger, "Ripple")
             .addIdentifier(RIPPLE)
 
-        val bottomappbar = ItemDrawer(R.drawable.ic_plus, "Bottom AppBar")
+        val bottomappbar = ItemDrawer(R.drawable.ic_bottom_appbar, "Bottom AppBar")
             .addIdentifier(BOTTOMAPPBAR)
-            .setFocusable(false)
 
-        val progressbar = ItemDrawer(R.drawable.ic_plus, "ProgressBar Toolbar")
+        val progressbar = ItemDrawer(R.drawable.ic_progressbar, "ProgressBar Toolbar")
             .addIdentifier(PROGRESSBAR)
             .setFocusable(false)
 
-        val cardview = ItemDrawer(R.drawable.ic_plus, "CardView")
+        val cardview = ItemDrawer(R.drawable.ic_card, "CardView")
             .addIdentifier(CARDVIEW)
 
-        val snackbar = ItemDrawer(R.drawable.ic_plus, "Snackbar")
+        val snackbar = ItemDrawer(R.drawable.ic_snackbar, "Snackbar Material")
             .addIdentifier(SNACKBAR)
             .setFocusable(false)
 
         val divider = ItemDrawer(ItemDrawer.DIVIDER)
 
         itemNavigation.apply {
+            add(divider)
             add(main)
             add(typography)
             add(ripple)
             add(divider)
+            add(snackbar)
             add(bottomappbar)
             add(progressbar)
             add(cardview)
-            add(snackbar)
         }
 
         navigationList.adapter = DrawerAdapter(itemNavigation, listener)

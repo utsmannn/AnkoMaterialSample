@@ -7,6 +7,7 @@
 
 package com.kucingapes.ankomaterialsample.ankoUi
 
+import android.graphics.Typeface
 import android.support.design.widget.AppBarLayout
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
@@ -23,6 +24,7 @@ import com.kucingapes.ankomaterialsample.BaseUi.baseToolbar
 import com.kucingapes.ankomaterialsample.BaseUi.baseAppBarTop
 import com.kucingapes.ankomaterialsample.BaseUi.getStatusBarHeight
 import com.kucingapes.ankomaterialsample.MainActivity
+import com.kucingapes.ankomaterialsample.MaterialUtils
 import com.kucingapes.ankomaterialsample.R
 
 
@@ -52,14 +54,58 @@ class MainUi : AnkoComponent<MainActivity> {
                     view {
                         backgroundColorResource = R.color.drawerStatusBar
                     }.lparams(matchParent, getStatusBarHeight(context))
-                    view {
 
+                    linearLayout {
+                        gravity = Gravity.CENTER
+                        linearLayout {
+                            textView("Anko") {
+                                id = R.id.anko_text
+                                typeface = Typeface.SANS_SERIF
+                                typeface = Typeface.DEFAULT_BOLD
+                                textSize = 50f
+                            }
+                            imageView {
+                                imageResource = R.drawable.kotlin_logo
+                            }.lparams(dip(15), dip(15)) {
+                                topMargin = dip(10)
+                            }
+                        }
+
+                        imageView {
+                            imageResource = R.drawable.ic_love
+                        }.lparams(dip(25), dip(25)) {
+                            margin = dip(20)
+                        }
+
+                        imageView {
+                            imageResource = R.drawable.google_material_logo
+                        }.lparams(dip(50), dip(50))
                     }.lparams(matchParent, dip(100))
 
                     recyclerView {
                         id = R.id.item_navigation
                         layoutManager = LinearLayoutManager(context)
                     }
+                }
+
+                relativeLayout {
+                    gravity = Gravity.BOTTOM
+
+                    linearLayout {
+                        padding = dip(12)
+                        id = R.id.github
+                        MaterialUtils.rippleThis(this, MaterialUtils.FOREGROUND)
+                        gravity = Gravity.CENTER
+                        textView("Source code by kucingapes") {
+                            MaterialUtils.materialText(this)
+                        }
+
+                        imageView {
+                            imageResource = R.drawable.social_github
+                        }.lparams(dip(25), dip(25)) {
+                            leftMargin = dip(12)
+                        }
+                    }.lparams(matchParent, wrapContent)
                 }
             }.lparams(matchParent, matchParent) {
                 gravity = Gravity.START

@@ -26,7 +26,7 @@ class DrawerAdapter(private var items: MutableList<ItemDrawer>,
                     private var listener: DrawerItemClick
 ) : RecyclerView.Adapter<DrawerAdapter.Holder>() {
     private lateinit var context: Context
-    private var selectedItem = 0
+    private var selectedItem = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         context = parent.context

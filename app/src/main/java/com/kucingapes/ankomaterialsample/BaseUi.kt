@@ -10,6 +10,7 @@ package com.kucingapes.ankomaterialsample
 import android.content.Context
 import android.support.design.widget.AppBarLayout
 import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import android.view.ViewManager
 import android.widget.TextView
 import com.kucingapes.ankomaterialsample.adapter.MainAdapter
@@ -40,18 +41,7 @@ object BaseUi {
             add("https://fallinpets.com/wp-content/uploads/2017/11/FUNNY-CAT-PICTURES.jpg")
             add("https://www.lifewithcats.tv/wp-content/uploads/2018/07/google-1.png")
         }
-
-        /*layoutManager = GridLayoutManager(context, 2)
-        adapter = MainAdapter(items)*/
     }
-
-    /*fun ViewManager.baseToolbar(themeRes: Int) = themedToolbar(themeRes) {
-        id = R.id.toolbar
-        title = resources.getString(R.string.app_name)
-
-        val viewTitle = this.getChildAt(0) as TextView
-        MaterialUtils.materialText(viewTitle)
-    }*/
 
     fun ViewManager.baseToolbar() = themedToolbar(R.style.ThemeOverlay_AppCompat_Dark) {
         id = R.id.toolbar
@@ -67,6 +57,16 @@ object BaseUi {
             scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP or
                     AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
         }
+
+        horizontalProgressBar {
+            id = R.id.horizontal_progress
+            bottomPadding = dip(-7)
+            topPadding = dip(-7)
+
+            isIndeterminate = true
+            visibility = View.GONE
+            backgroundColorResource = android.R.color.white
+        }.lparams(matchParent, wrapContent)
     }
 
     fun ViewManager.fakeStatusBar(context: Context) = relativeLayout {
