@@ -9,11 +9,9 @@ package com.kucingapes.ankomaterialsample
 
 import android.content.Context
 import android.support.design.widget.AppBarLayout
-import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.view.ViewManager
 import android.widget.TextView
-import com.kucingapes.ankomaterialsample.adapter.MainAdapter
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.themedToolbar
 import org.jetbrains.anko.design.appBarLayout

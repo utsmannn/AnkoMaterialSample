@@ -11,23 +11,18 @@ import android.graphics.PorterDuff
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
 import android.support.v7.widget.Toolbar
 import android.view.Gravity
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import org.jetbrains.anko.design.coordinatorLayout
 import com.kucingapes.ankomaterialsample.BaseUi.fakeStatusBar
 import com.kucingapes.ankomaterialsample.BaseUi.baseToolbar
-import com.kucingapes.ankomaterialsample.BaseUi.baseRecyclerView
 import com.kucingapes.ankomaterialsample.materialSnackBar.MaterialSnackbar
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.navigationIconResource
 import org.jetbrains.anko.appcompat.v7.toolbar
 import org.jetbrains.anko.cardview.v7.cardView
-import org.jetbrains.anko.design.floatingActionButton
 
 class BottomAppBarActivity : BaseActivity() {
 

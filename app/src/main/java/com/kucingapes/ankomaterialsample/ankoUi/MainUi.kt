@@ -9,18 +9,15 @@ package com.kucingapes.ankomaterialsample.ankoUi
 
 import android.graphics.Typeface
 import android.support.design.widget.AppBarLayout
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
 import android.view.View
-import com.kucingapes.ankomaterialsample.BaseUi
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.coordinatorLayout
 import org.jetbrains.anko.design.navigationView
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.drawerLayout
 import com.kucingapes.ankomaterialsample.BaseUi.fakeStatusBar
-import com.kucingapes.ankomaterialsample.BaseUi.baseToolbar
 import com.kucingapes.ankomaterialsample.BaseUi.baseAppBarTop
 import com.kucingapes.ankomaterialsample.BaseUi.getStatusBarHeight
 import com.kucingapes.ankomaterialsample.MainActivity

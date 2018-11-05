@@ -19,10 +19,8 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.Gravity
 import android.view.View
-import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ProgressBar
-import android.widget.RelativeLayout
 import com.kucingapes.ankomaterialsample.materialDrawer.DrawerAdapter
 import com.kucingapes.ankomaterialsample.materialDrawer.DrawerItemClick
 import com.kucingapes.ankomaterialsample.materialDrawer.ItemDrawer

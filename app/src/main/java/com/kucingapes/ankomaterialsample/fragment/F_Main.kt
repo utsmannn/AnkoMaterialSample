@@ -14,12 +14,10 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kucingapes.ankomaterialsample.R
 import com.kucingapes.ankomaterialsample.adapter.MainAdapter
 import com.kucingapes.ankomaterialsample.BaseUi.baseRecyclerView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.coordinatorLayout
-import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 class F_Main : Fragment(), AnkoComponent<Context>, AnkoLogger {
 
