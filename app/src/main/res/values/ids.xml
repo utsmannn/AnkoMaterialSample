@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="drawer_layout" type="id"/>
+    <item name="recycler_view" type="id"/>
+    <item name="cat_image" type="id"/>
+    <item name="toolbar" type="id"/>
+    <item name="drawer_card_container" type="id"/>
+    <item name="drawer_item_icon" type="id"/>
+    <item name="drawer_item_text" type="id"/>
+    <item name="drawer_divider" type="id"/>
+    <item name="item_drawer" type="id"/>
+    <item name="item_navigation" type="id"/>
+    <item name="navigation_view" type="id"/>
+    <item name="container_fragment" type="id"/>
+    <item name="fake_statusbar" type="id"/>
+    <item name="snackbar_layout" type="id"/>
+    <item name="parent_coordinator" type="id"/>
+    <item name="bottom_appbar" type="id"/>
+    <item name="bottom_toolbar" type="id"/>
+    <item name="snackbar_parent" type="id"/>
+    <item name="card_appbar" type="id"/>
+</resources>
