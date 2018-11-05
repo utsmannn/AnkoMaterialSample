@@ -1,4 +1,4 @@
-# Anko New Material Design v.2
+# Anko New Material Design Sample
 Kita akan mencoba mengadaptasi Material Design versi baru (https://material.io) pada Anko Layout
 
 ## Preview
@@ -7,17 +7,18 @@ Kita akan mencoba mengadaptasi Material Design versi baru (https://material.io) 
 |![](https://image.ibb.co/k5W3tL/Screenshot-Anko-Material-Sample-20181106-024651.png)|![](https://image.ibb.co/jmtKHf/Screenshot-Anko-Material-Sample-20181106-024736.png)|![](https://image.ibb.co/fdqzHf/image.png)|![](https://image.ibb.co/ijFAOL/Screenshot-Anko-Material-Sample-20181106-024832.png)|
 
 ## APK Preview
-[Download app (4mb)](app-debug-anko-material-sample.apk)
+[Download apk (4mb)](https://github.com/kucingapes/AnkoMaterialSample/blob/master/app-debug-anko-material-sample.apk?raw=true)
 
 ## Index
 - [BaseView](#baseview)
 - [Tipografi](#typo)
 - [Ripple](#ripple)
 - [Statusbar dan toolbar](#toolbar)
-- [ProgressBar](#progress)
+- [ProgressBar on toolbar](#progress)
 - [CardView](#card)
 - [Bottom AppBar](#bottom_appbar)
-- [Snackbar](#snackbar)
+- [Material Snackbar](#snackbar)
+- [Material Drawer](#drawer)
 
 
 ## 1. <a name= "baseview" ><a> BaseView
@@ -70,6 +71,8 @@ textView("textnya") {
 }
 ```
 
+[Link code material text](https://github.com/kucingapes/AnkoMaterialSample/blob/master/app/src/main/java/com/kucingapes/ankomaterialsample/MaterialUtils.kt#L42)
+
 ## 3. <a name= "ripple" ><a> Ripple
 Jika kita menggunakan xml, untuk mengaktifkan animasi ripple cukup dengan menambahkan ```?android:attr/selectableItemBackground``` pada foreground atau background view.<br>
 Lalu untuk penggunaan pada Anko, kodenya sebagai berikut
@@ -107,6 +110,9 @@ cardView {
 |--|--|
 | ![](https://image.ibb.co/gGA1q0/20181102-214433.gif) | ![](https://image.ibb.co/j13eA0/20181102-214453.gif) |
 
+
+[Link code ripple](https://github.com/kucingapes/AnkoMaterialSample/blob/master/app/src/main/java/com/kucingapes/ankomaterialsample/MaterialUtils.kt#L52)
+
 ## 4. <a name= "toolbar" ><a> StatusBar dan Toolbar
 
 |![](https://image.ibb.co/dsCToL/image.png)|![](https://image.ibb.co/bGsuTL/image.png)|![](https://image.ibb.co/eAQba0/image.png)|
@@ -128,6 +134,10 @@ Pada custom toolbar tersebut, kita memanggil textView untuk diaplikasikan fungsi
 
 ![](https://image.ibb.co/iNSi50/image.png)
 
+[Link code toolbar](https://github.com/kucingapes/AnkoMaterialSample/blob/0ae2d43d4d84ddc42e8b5405baceac05d127b3a3/app/src/main/java/com/kucingapes/ankomaterialsample/BaseUi.kt#L46)
+<br> [Link code fake status bar](https://github.com/kucingapes/AnkoMaterialSample/blob/0ae2d43d4d84ddc42e8b5405baceac05d127b3a3/app/src/main/java/com/kucingapes/ankomaterialsample/BaseUi.kt#L72)
+<br> [Link code disable statusbar](https://github.com/kucingapes/AnkoMaterialSample/blob/0ae2d43d4d84ddc42e8b5405baceac05d127b3a3/app/src/main/java/com/kucingapes/ankomaterialsample/BaseActivity.kt#L20)
+
 ## 5. <a name= "progress" ><a> ProgressBar in Toolbar
 ProgressDialog sudah deprecated di level api 26 karena kata google itu menutup interaksi user dengan aplikasi. Maka solusi nya adalah menggunakan progressbar yang diletakan secara baik, salah satunya di Toolbar. Caranya tambahkan progressbar ke dalam toolbar.
 
@@ -146,6 +156,9 @@ Visible dapat di setel jika progress on, jika sudah off, bisa disetel ```View.GO
 |![](https://image.ibb.co/f6w2yL/gifeditor-20181103-161700.gif)|
 |--|
 |progressbar in toolbar|
+
+
+[link code progressbar](https://github.com/kucingapes/AnkoMaterialSample/blob/0ae2d43d4d84ddc42e8b5405baceac05d127b3a3/app/src/main/java/com/kucingapes/ankomaterialsample/BaseUi.kt#L61)
 
 ## 6. <a name= "card" ><a> CardView
 Tidak banyak perbedaan cardview pada Material Design 2, cuman pada roundcorner nya yang lebih bulet.
@@ -232,6 +245,9 @@ Kita juga bisa mengganti floatingActionButton dengan CardView seperti aplikasi [
 |![](https://image.ibb.co/hkJMsf/image.png)|
 |--|
 |custom bottom appbar with cardview|
+
+
+[Link code bottom appbar](https://github.com/kucingapes/AnkoMaterialSample/blob/master/app/src/main/java/com/kucingapes/ankomaterialsample/BottomAppBarActivity.kt#L110)
 
 ## 8. <a name= "snackbar" ><a> Snackbar
 Perubahan tampilan untuk snackbar pada Material Design 2 cukup terlihat, snackbar jadi bergaya card.<br>
@@ -351,9 +367,9 @@ class MaterialSnackbar private constructor(context: Context) {
         snackbarView.setPadding(0, 0, 0, 0)
         snackbarView.setBackgroundResource(android.R.color.transparent)
         val text = snackbarView.findViewById<View>(android.support.design.R.id.snackbar_text) as TextView
-        text.visibility = View.GONE
+        text.visibility = View.INVISIBLE
         val action = snackbarView.findViewById<View>(android.support.design.R.id.snackbar_action) as TextView
-        action.visibility = View.GONE
+        action.visibility = View.INVISIBLE
         contentView = SnackBarUi(bottomMargin).createView(AnkoContext.create(ctx, snackbarView))
         snackbarView.addView(contentView, 0)
         return this
@@ -419,3 +435,19 @@ MaterialSnackbar.Builder(this)
 |--|--|
 |![](https://image.ibb.co/epts00/20181104-011919.gif)|![](https://image.ibb.co/cMnkL0/20181104-012646.gif)|
 
+
+[Link MaterialSnackbar](https://github.com/kucingapes/AnkoMaterialSample/tree/master/app/src/main/java/com/kucingapes/ankomaterialsample/materialSnackBar)
+
+## <a name= "drawer" ><a> Bonus - Material Drawer
+
+|Material Drawer|
+|--|
+|![](https://image.ibb.co/mNqzHf/image.png)|
+
+<br>
+
+[Link Class Material Drawer](https://github.com/kucingapes/AnkoMaterialSample/tree/master/app/src/main/java/com/kucingapes/ankomaterialsample/materialDrawer)
+<br> [Link Penggunaan Material Drawer](https://github.com/kucingapes/AnkoMaterialSample/blob/master/app/src/main/java/com/kucingapes/ankomaterialsample/MainActivity.kt#L111)
+
+---
+**Sip mantap**
